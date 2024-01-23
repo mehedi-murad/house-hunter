@@ -4,11 +4,18 @@ import './index.css'
 import { NextUIProvider } from '@nextui-org/react'
 import { RouterProvider } from 'react-router-dom'
 import Routes from './Pages/Routes/Routes.jsx'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <NextUIProvider>
-      <RouterProvider router={Routes}></RouterProvider>
-    </NextUIProvider>
+    <QueryClientProvider client={queryClient}>
+      <NextUIProvider>
+        <RouterProvider router={Routes}></RouterProvider>
+      </NextUIProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )

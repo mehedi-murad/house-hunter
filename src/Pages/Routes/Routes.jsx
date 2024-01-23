@@ -5,6 +5,7 @@ import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
 import Dashboard from "../Dashboard/Dashboard";
 import ListOfHouses from "../Dashboard/ListOfHouses/ListOfHouses";
+import AddHouse from "../Dashboard/AddHouse/AddHouse";
 
 const Routes = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const Routes = createBrowserRouter([
             {
                 path:"houseList",
                 element:<ListOfHouses></ListOfHouses>
+            },
+            {
+                path:"addHouse",
+                element:<AddHouse></AddHouse>
             }
         ]
     }

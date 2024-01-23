@@ -54,18 +54,9 @@ const Social = () => {
                         <img className="w-40 h-32 rounded-xl" src={building7} alt="" />
                     </SwiperSlide>
                 </Swiper>
-                {/* <img className="w-40 h-32 rounded-xl" src={building1} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building4} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building2} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building3} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building5} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building6} alt="" />
-                <img className="w-40 h-32 rounded-xl" src={building7} alt="" /> */}
             </div>
             <div className="flex justify-center mt-10">
-                <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-8">
-                    See more Photos
-                </Button>
+            <button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10 py-2 mt-20 rounded-full">See More Photos</button>
             </div>
         </div>
     );

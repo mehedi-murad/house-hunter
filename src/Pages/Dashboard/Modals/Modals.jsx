@@ -1,108 +1,71 @@
-import React from "react";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Textarea} from "@nextui-org/react";
+import Swal from "sweetalert2";
 
 const Modals = () => {
-    const {isOpen, onOpen, onClose} = useDisclosure();
-    const [backdrop, setBackdrop] = React.useState('opaque')
+    const handleSubmit = e => {
+      e.preventDefault();
+      const form = e.target;
 
-    // const backdrops = ["opaque", "blur", "transparent"];
+      const name = form.name.value;
+      const address = form.address.value;
+      const city = form.city.value;
+      const bedrooms = form.bedrooms.value;
+      const roomSize = form.roomSize.value;
+      const image = form.image.value;
+      const date = form.date.value;
+      const rent = form.rent.value;
+      const phone = form.phone.value;
+      const desc = form.desc.value;
+      const houses = {
+          name, address, city, bedrooms, roomSize, image, date, rent, phone, desc
+      }
 
-    const handleOpen = (backdrop) => {
-        setBackdrop(backdrop)
-        onOpen();
-    }
+      fetch('http://localhost:5000/house',{
+          method: 'POST',
+          headers: {
+              "content-type": "application/json"
+          },
+          body: JSON.stringify(houses)
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+          if(data.insertedId){
+              form.reset()
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "House Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+          }
+      })
+    };
     return (
         <div>
-            <div className="flex flex-wrap gap-3">
-            <Button 
-            variant="flat" 
-            color="warning" 
-            onPress={() => handleOpen()}
-            className="capitalize"
-          >
-           Add New Houses
-            </Button> 
-      </div>
-      <Modal backdrop={backdrop} isOpen={isOpen} onClose={onClose}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">Add your House</ModalHeader>
-              <ModalBody>
-                <Input
-                  autoFocus
-                  label="House Name"
-                  placeholder="Enter Name"
-                  variant="bordered"
-                />
-                <Input
-                  label="Address"
-                  placeholder="Enter address"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="City"
-                  placeholder="Enter city name"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="Bedrooms"
-                  placeholder="Enter bedrooms number"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="Room sizes"
-                  placeholder="Enter the size of the room"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="Image"
-                  placeholder="Enter image Url"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="Available date"
-                  placeholder="Availibility"
-                  type="date"
-                  variant="bordered"
-                />
-                <Input
-                  label="Rent/month"
-                  placeholder="Enter the amount"
-                  type="text"
-                  variant="bordered"
-                />
-                <Input
-                  label="Phone"
-                  placeholder="Enter the number"
-                  type="text"
-                  variant="bordered"
-                />
-                <Textarea
-                    label="Description"
-                    placeholder="Enter your description"
-                    type="text"
-                    variant="bordered"
-                    />
-                
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  ADD
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+            <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>Add House</button>
+          <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+            <div className="bg-gray-300 w-[650px] p-20 rounded-xl">
+              {/* <div className="modal-action bg-[#7828C8] w-[650px]"> */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input type="text" name="name" placeholder="Name" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="address" placeholder="Address" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="city" placeholder="City" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="bedrooms" placeholder="Bedrooms" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="roomSize" placeholder="Roomsize" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="image" placeholder="Image" className="input input-bordered input-primary w-full" />
+                  <input type="date" name="date" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="rent" placeholder="Rent" className="input input-bordered input-primary w-full" />
+                  <input type="text" name="phone" placeholder="Phone" className="input input-bordered input-primary w-full" />
+                  <textarea className="textarea textarea-primary w-full" name="desc" placeholder="Description"></textarea>
+                  <div>
+                    <input type="submit" value="Add House" className="btn bg-cyan-400 btn-block mt-4" />
+                  </div>
+                </form>
+                {/* <button className="btn">Add</button> */}
+              {/* </div> */}
+            </div>
+          </dialog>
         </div>
     );
 };

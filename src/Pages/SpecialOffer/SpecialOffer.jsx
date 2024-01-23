@@ -20,9 +20,7 @@ const SpecialOffer = () => {
                     <h2 className="text-3xl font-bold">Special offers for <br /><span className="text-[#6A027B] text-5xl">First Booking!</span></h2>
                     <hr style={{width:"15%"}}></hr>
                     <p className="text-justify text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis molestiae in iste at! Exercitationem voluptas cumque cum temporibus, cupiditate, ipsam ab ex explicabo quis quaerat architecto quibusdam nisi dignissimos facere aspernatur harum minima possimus velit repellendus aperiam, fugiat pariatur in delectus? Facere commodi illo dicta ea tenetur animi officiis qui.</p>
-                    <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-8">
-                    View Offers
-                    </Button>
+                    <button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10 py-2 mt-20 rounded-full">View Offers</button>
                 </div>
                 <div data-aos="fade-left" className="p-4">
                     <img className="w-[450px] rounded-xl" src={offerImg} alt="" />
