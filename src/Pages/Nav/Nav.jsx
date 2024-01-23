@@ -23,7 +23,7 @@ const Nav = () => {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href="/dashboard">
               Dashboard
             </Link>
           </NavbarItem>
@@ -49,14 +49,11 @@ const Nav = () => {
               <p className="font-semibold">Signed in as</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
-            {/* <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem> */}
             <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
             <DropdownItem key="logout" color="danger">
-              Log Out
+              <Link href="/login">
+                <h2>Login</h2>
+              </Link>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
