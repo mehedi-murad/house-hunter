@@ -19,7 +19,7 @@ const Modals = () => {
           name, address, city, bedrooms, roomSize, image, date, rent, phone, desc
       }
 
-      fetch('http://localhost:5000/house',{
+      fetch('https://house-hunter-server-omega.vercel.app/house',{
           method: 'POST',
           headers: {
               "content-type": "application/json"

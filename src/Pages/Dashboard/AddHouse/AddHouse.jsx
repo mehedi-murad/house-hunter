@@ -22,7 +22,7 @@ const AddHouse = () => {
         }
         
   
-        fetch('http://localhost:5000/house',{
+        fetch('https://house-hunter-server-omega.vercel.app/house',{
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -63,7 +63,7 @@ const AddHouse = () => {
                         {/* <input type="submit" value="Add House" className="btn bg-cyan-400 btn-block mt-4" /> */}
                         <button className="btn w-full">ADD HOUSE</button>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
     );
