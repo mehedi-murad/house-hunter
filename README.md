@@ -1,8 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Name of The Project: House Hunter (Not fully completed)
+### Client site git repo: https://github.com/mehedi-murad/house-hunter
+### server site git repo: https://github.com/mehedi-murad/house-hunter-server
+### Live site: https://effortless-douhua-00cfbd.netlify.app/
